@@ -3,7 +3,9 @@ using UnityEngine;
 public class BoomerangLogicScript : MonoBehaviour
 {
 
-
+    //scaling vars
+    [HideInInspector] public float xScaling;
+    [HideInInspector] public float yScaling;
     //animator vars
     [HideInInspector] public bool isRotating;
     //components
@@ -56,8 +58,11 @@ public class BoomerangLogicScript : MonoBehaviour
 
     #region functions
 
-    public void ThrowBoomerang()
+    public void ThrowBoomerang(float x, float y)
     {
+        //
+        xScaling = x;
+        yScaling = y;
         //
         isBeingThrown = true;
         coll.isTrigger = true;
@@ -87,7 +92,7 @@ public class BoomerangLogicScript : MonoBehaviour
             return;
         }
         //check if the boomerang is loose
-        else if (Vector2.Distance(lastPlayerPos, boomerangObject.transform.position) < disapearDistance && !isBeingThrown)        
+        else if (Vector2.Distance(lastPlayerPos, boomerangObject.transform.position) < disapearDistance && !isBeingThrown)
         {
             isLoose = true;
             //Debug.Log("didn't catch");
@@ -107,7 +112,7 @@ public class BoomerangLogicScript : MonoBehaviour
             isRotating = true;
         }
 
-        
+
 
     }
 
@@ -129,10 +134,19 @@ public class BoomerangLogicScript : MonoBehaviour
             gameObject.SetActive(false);
             Destroy(gameObject);
         }
+        if(collision.CompareTag("Scalable")&& !isLoose)
+        {
+            collision.gameObject.transform.localScale = new Vector3(xScaling, yScaling, 1f);
+            if(collision.gameObject.GetComponent<Rigidbody2D>() != null)
+            {
+                collision.gameObject.GetComponent<Rigidbody2D>().gravityScale *= Mathf.Sign(yScaling);
+            }   
+        }
         if (collision.gameObject.layer == 3 && isLoose)
         {
+
             rb.velocity = Vector2.zero;
-            //Debug.Log("hit the ground");
+
         }
     }
 
@@ -149,7 +163,7 @@ public class BoomerangLogicScript : MonoBehaviour
 
         }
         //if (collision.gameObject.CompareTag("Ground") && isLoose)
-        if (collision.gameObject.layer == 3 && isLoose) 
+        if (collision.gameObject.layer == 3 && isLoose)
         {
             rb.velocity = Vector2.zero;
             //Debug.Log("hit the ground");

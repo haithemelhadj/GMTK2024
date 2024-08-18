@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - StartThrow
+  - Scalable
   layers:
   - Default
   - TransparentFX
