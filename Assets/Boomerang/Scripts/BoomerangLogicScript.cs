@@ -2,107 +2,136 @@ using UnityEngine;
 
 public class BoomerangLogicScript : MonoBehaviour
 {
+
+
+    //animator vars
+    [HideInInspector] public bool isRotating;
+    //components
     public BoomerangThrowScript boomerangThrowScript;
-    public float throwDuration;
-    public float throwTime;
+    public Rigidbody2D rb;
+    public CircleCollider2D coll;
+
+    //refrences
     public Transform throwStartingPosition;
     public GameObject boomerangObject;
-    public Vector2 mousePos;
+
+    //throw vars
     public float throwForce;
-    public Vector2 throwDirection;
-    public bool isThrown = false;
-    public Rigidbody2D rb;
-    public Vector3 rotationVector = new Vector3(0f, 0f, 1f);
-    public CircleCollider2D coll;
+    public float throwDuration;
+    [HideInInspector] public float throwTime;
+    [HideInInspector] public Vector2 mousePos;
+    [HideInInspector] public Vector2 throwDirection;
+    public bool isThrown; //to check if boomerang is in hand or not
+    public bool isBeingThrown; // to check if boomerang is going or coming back
+
+    //returning back
+    public float disapearDistance;
+    [HideInInspector] public Vector2 lastPlayerPos;
+    //loose
+    public bool isLoose;
+
+    //extra or placeholders
+    public float rotationSpeed;
+    [HideInInspector] public Vector3 rotationVector = new Vector3(0f, 0f, 1f);
 
     private void Awake()
     {
-        boomerangObject = this.gameObject;
+        boomerangObject = gameObject;
         rb = boomerangObject.GetComponent<Rigidbody2D>();
         coll = GetComponent<CircleCollider2D>();
     }
     private void Update()
     {
+        if (isRotating)
+        {
+            boomerangObject.transform.Rotate(rotationVector * rotationSpeed * Time.deltaTime); // place holder rotation
+        }
         if (isThrown)
         {
-            flyingBoomerang();//code when the boomerang is thrown
-        }
-        else
-        {
-            //HeldBoomerang();
+            BoomerangThrown();//code when the boomerang is thrown
+            Debug.Log("isthrown");
         }
     }
+
+
+    #region functions
 
     public void ThrowBoomerang()
     {
-        rb.velocity = Vector2.zero;
+        //
         isBeingThrown = true;
-        rb.gravityScale = 0f;
-        transform.position = throwStartingPosition.position;
-        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        throwDirection = (mousePos - (Vector2)throwStartingPosition.position).normalized;
-        throwTime = Time.time;
         coll.isTrigger = true;
         isThrown = true;
+        rb.velocity = Vector2.zero;
+        rb.gravityScale = 0f;
+        //
+        throwTime = Time.time;
+        transform.position = throwStartingPosition.position;
+        //
+        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        throwDirection = (mousePos - (Vector2)throwStartingPosition.position).normalized;
     }
 
 
-
-    private void flyingBoomerang()
+    //when thrown it has three states : thrown, returning back, loose
+    private void BoomerangThrown()
     {
-        //check if the player didn't catch the boomerang
-        if (Vector2.Distance(lastPlayerPos, boomerangObject.transform.position) < disapearDistance && !isBeingThrown)
+        //check if the boomerang is thrown 
+        if (Time.time - throwTime < throwDuration)
         {
-            //isThrown = false;
-            isFalling = true;
-            coll.isTrigger = false;
-            rb.gravityScale = 4f;
+            Debug.Log("is Thrown");
+            isBeingThrown = true; //is being thrown
+            rb.velocity = throwDirection * throwForce;//throw velocity
+            lastPlayerPos = throwStartingPosition.position;//return to last player position
+            isRotating = true;
+            return;
+        }
+        //check if the boomerang is loose
+        else if (Vector2.Distance(lastPlayerPos, boomerangObject.transform.position) < disapearDistance && !isBeingThrown)        
+        {
+            isLoose = true;
             Debug.Log("didn't catch");
+            rb.velocity = Vector2.zero;
+            coll.isTrigger = false;
+            rb.gravityScale = 2f;
+            isRotating = false;
+
         }
-        else if (Time.time - throwTime > throwDuration)//this is not "else" for gameplay reason and to add other conditions
+        //check if boomerang is returning back
+        else if (Time.time - throwTime > throwDuration && !isLoose)
         {
-            Back();
-            boomerangObject.transform.Rotate(rotationVector * rotationSpeed * Time.deltaTime);
+            Debug.Log("is coming back");
+            isBeingThrown = false; // is coming back
+            Vector2 backDirection = lastPlayerPos - (Vector2)boomerangObject.transform.position;// return direction
+            rb.velocity = backDirection.normalized * throwForce;// return velocity
+            isRotating = true;
         }
-        //check if the has thrown the boomerang or not
-        else
-        {
-            Throw();
-            boomerangObject.transform.Rotate(rotationVector * rotationSpeed * Time.deltaTime);
-        }
+
+        
+
     }
 
-    public float disapearDistance;
-    public float rotationSpeed;
-    public bool isBeingThrown;
-    //when the boomerang is thrown
-    public void Throw()
-    {
-        isBeingThrown = true;
-        rb.velocity = throwDirection * throwForce;
-        lastPlayerPos = throwStartingPosition.position;
-    }
 
-    public bool isFalling;
-    public Vector2 lastPlayerPos;
-    //when the boomerang is retuning back
-    public void Back()
-    {
-        isBeingThrown = false;
-        Vector2 backDirection = lastPlayerPos - (Vector2)boomerangObject.transform.position;
-        rb.velocity = backDirection.normalized * throwForce;
-    }
+
+    #endregion
+
+    #region collisions
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //check if the player cactches the boomerang
         if (collision.CompareTag("Player") && !isBeingThrown)
         {
-            Debug.Log(isThrown);
+            Debug.Log("did catch");
+            isLoose = false;
             isThrown = false;
-            isFalling = false;
             boomerangThrowScript.throwables++;
             gameObject.SetActive(false);
+        }
+        if (collision.gameObject.layer == 3 && isLoose)
+        {
+            rb.velocity = Vector2.zero;
+            Debug.Log("hit the ground");
         }
     }
 
@@ -110,11 +139,20 @@ public class BoomerangLogicScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player") && !isBeingThrown)
         {
-            Debug.Log(isThrown);
+            Debug.Log("did catch");
+            isLoose = false;
             isThrown = false;
-            isFalling = false;
             boomerangThrowScript.throwables++;
             gameObject.SetActive(false);
+
+        }
+        //if (collision.gameObject.CompareTag("Ground") && isLoose)
+        if (collision.gameObject.layer == 3 && isLoose) 
+        {
+            rb.velocity = Vector2.zero;
+            Debug.Log("hit the ground");
         }
     }
+
+    #endregion
 }

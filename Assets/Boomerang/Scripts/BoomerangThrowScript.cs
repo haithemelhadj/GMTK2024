@@ -2,11 +2,12 @@ using UnityEngine;
 
 public class BoomerangThrowScript : MonoBehaviour
 {
+    //refrences
     public Transform throwStartingPosition;
     public GameObject[] boomerangObject;
-    public int throwables = 1;
-    public Vector2 throwDirection;
-    public Vector2 mousePos;
+    public int throwables;
+
+
 
 
 
