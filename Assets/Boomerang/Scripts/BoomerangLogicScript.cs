@@ -49,7 +49,7 @@ public class BoomerangLogicScript : MonoBehaviour
         if (isThrown)
         {
             BoomerangThrown();//code when the boomerang is thrown
-            Debug.Log("isthrown");
+            //Debug.Log("isthrown");
         }
     }
 
@@ -79,7 +79,7 @@ public class BoomerangLogicScript : MonoBehaviour
         //check if the boomerang is thrown 
         if (Time.time - throwTime < throwDuration)
         {
-            Debug.Log("is Thrown");
+            //Debug.Log("is Thrown");
             isBeingThrown = true; //is being thrown
             rb.velocity = throwDirection * throwForce;//throw velocity
             lastPlayerPos = throwStartingPosition.position;//return to last player position
@@ -90,7 +90,7 @@ public class BoomerangLogicScript : MonoBehaviour
         else if (Vector2.Distance(lastPlayerPos, boomerangObject.transform.position) < disapearDistance && !isBeingThrown)        
         {
             isLoose = true;
-            Debug.Log("didn't catch");
+            //Debug.Log("didn't catch");
             rb.velocity = Vector2.zero;
             coll.isTrigger = false;
             rb.gravityScale = 2f;
@@ -100,7 +100,7 @@ public class BoomerangLogicScript : MonoBehaviour
         //check if boomerang is returning back
         else if (Time.time - throwTime > throwDuration && !isLoose)
         {
-            Debug.Log("is coming back");
+            //Debug.Log("is coming back");
             isBeingThrown = false; // is coming back
             Vector2 backDirection = lastPlayerPos - (Vector2)boomerangObject.transform.position;// return direction
             rb.velocity = backDirection.normalized * throwForce;// return velocity
@@ -122,16 +122,17 @@ public class BoomerangLogicScript : MonoBehaviour
         //check if the player cactches the boomerang
         if (collision.CompareTag("Player") && !isBeingThrown)
         {
-            Debug.Log("did catch");
+            //Debug.Log("did catch");
             isLoose = false;
             isThrown = false;
             boomerangThrowScript.throwables++;
             gameObject.SetActive(false);
+            Destroy(gameObject);
         }
         if (collision.gameObject.layer == 3 && isLoose)
         {
             rb.velocity = Vector2.zero;
-            Debug.Log("hit the ground");
+            //Debug.Log("hit the ground");
         }
     }
 
@@ -139,18 +140,19 @@ public class BoomerangLogicScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player") && !isBeingThrown)
         {
-            Debug.Log("did catch");
+            //Debug.Log("did catch");
             isLoose = false;
             isThrown = false;
             boomerangThrowScript.throwables++;
             gameObject.SetActive(false);
+            Destroy(gameObject);
 
         }
         //if (collision.gameObject.CompareTag("Ground") && isLoose)
         if (collision.gameObject.layer == 3 && isLoose) 
         {
             rb.velocity = Vector2.zero;
-            Debug.Log("hit the ground");
+            //Debug.Log("hit the ground");
         }
     }
 

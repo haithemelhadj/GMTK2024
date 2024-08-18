@@ -849,23 +849,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e0b5aa8f206d294c8a8caf05830606f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isRotating: 0
   boomerangThrowScript: {fileID: 1284708943}
-  throwDuration: 0.5
-  throwTime: 0
+  rb: {fileID: 782803568}
+  coll: {fileID: 0}
   throwStartingPosition: {fileID: 1284708942}
   boomerangObject: {fileID: 0}
-  mousePos: {x: 0, y: 0}
   throwForce: 20
+  throwDuration: 0.5
+  throwTime: 0
+  mousePos: {x: 0, y: 0}
   throwDirection: {x: 0, y: 0}
   isThrown: 0
-  rb: {fileID: 782803568}
-  rotationVector: {x: 0, y: 0, z: 1}
-  coll: {fileID: 0}
-  disapearDistance: 0.05
-  rotationSpeed: 500
   isBeingThrown: 0
-  isFalling: 0
+  disapearDistance: 0.05
   lastPlayerPos: {x: 0, y: 0}
+  isLoose: 0
+  rotationSpeed: 500
+  rotationVector: {x: 0, y: 0, z: 1}
 --- !u!50 &782803568
 Rigidbody2D:
   serializedVersion: 4
@@ -1201,23 +1202,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e0b5aa8f206d294c8a8caf05830606f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isRotating: 0
   boomerangThrowScript: {fileID: 1284708943}
-  throwDuration: 0.5
-  throwTime: 0
+  rb: {fileID: 912601458}
+  coll: {fileID: 0}
   throwStartingPosition: {fileID: 1284708942}
   boomerangObject: {fileID: 0}
-  mousePos: {x: 0, y: 0}
   throwForce: 20
+  throwDuration: 0.5
+  throwTime: 0
+  mousePos: {x: 0, y: 0}
   throwDirection: {x: 0, y: 0}
   isThrown: 0
-  rb: {fileID: 912601458}
-  rotationVector: {x: 0, y: 0, z: 1}
-  coll: {fileID: 0}
-  disapearDistance: 0.05
-  rotationSpeed: 500
   isBeingThrown: 0
-  isFalling: 0
+  disapearDistance: 0.05
   lastPlayerPos: {x: 0, y: 0}
+  isLoose: 0
+  rotationSpeed: 500
+  rotationVector: {x: 0, y: 0, z: 1}
 --- !u!1 &968901815
 GameObject:
   m_ObjectHideFlags: 0
@@ -1481,9 +1483,8 @@ MonoBehaviour:
   - {fileID: 912601453}
   - {fileID: 2046447592}
   - {fileID: 782803566}
+  boomerangPrefab: {fileID: 912601453}
   throwables: 1
-  throwDirection: {x: 0, y: 0}
-  mousePos: {x: 0, y: 0}
 --- !u!1 &1389416480
 GameObject:
   m_ObjectHideFlags: 0
@@ -1899,23 +1900,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e0b5aa8f206d294c8a8caf05830606f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isRotating: 0
   boomerangThrowScript: {fileID: 1284708943}
-  throwDuration: 0.5
-  throwTime: 0
+  rb: {fileID: 2046447594}
+  coll: {fileID: 0}
   throwStartingPosition: {fileID: 1284708942}
   boomerangObject: {fileID: 0}
-  mousePos: {x: 0, y: 0}
   throwForce: 20
+  throwDuration: 0.5
+  throwTime: 0
+  mousePos: {x: 0, y: 0}
   throwDirection: {x: 0, y: 0}
   isThrown: 0
-  rb: {fileID: 2046447594}
-  rotationVector: {x: 0, y: 0, z: 1}
-  coll: {fileID: 0}
-  disapearDistance: 0.05
-  rotationSpeed: 500
   isBeingThrown: 0
-  isFalling: 0
+  disapearDistance: 0.05
   lastPlayerPos: {x: 0, y: 0}
+  isLoose: 0
+  rotationSpeed: 500
+  rotationVector: {x: 0, y: 0, z: 1}
 --- !u!50 &2046447594
 Rigidbody2D:
   serializedVersion: 4

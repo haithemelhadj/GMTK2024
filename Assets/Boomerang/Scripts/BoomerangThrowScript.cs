@@ -5,6 +5,7 @@ public class BoomerangThrowScript : MonoBehaviour
     //refrences
     public Transform throwStartingPosition;
     public GameObject[] boomerangObject;
+    public GameObject boomerangPrefab;
     public int throwables;
 
 
@@ -23,8 +24,9 @@ public class BoomerangThrowScript : MonoBehaviour
             if (throwables > 0)
             {
                 throwables--;
-                boomerangObject[boomerangObject.Length - throwables - 1].SetActive(true);
-                boomerangObject[boomerangObject.Length - throwables - 1].GetComponent<BoomerangLogicScript>().ThrowBoomerang();
+                //instantiate a boomerang 
+                GameObject boomerangSpwn= Instantiate(boomerangPrefab, throwStartingPosition.position, Quaternion.identity);
+                boomerangSpwn.GetComponent<BoomerangLogicScript>().ThrowBoomerang();
             }
 
         }
