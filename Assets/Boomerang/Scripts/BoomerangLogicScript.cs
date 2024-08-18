@@ -42,6 +42,7 @@ public class BoomerangLogicScript : MonoBehaviour
         rb = boomerangObject.GetComponent<Rigidbody2D>();
         coll = GetComponent<CircleCollider2D>();
     }
+
     private void Update()
     {
         if (isRotating)
