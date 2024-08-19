@@ -955,10 +955,8 @@ MonoBehaviour:
   xScaling: 0
   yScaling: 0
   isRotating: 0
-  boomerangThrowScript: {fileID: 1284708943}
   rb: {fileID: 782803568}
   coll: {fileID: 0}
-  throwStartingPosition: {fileID: 1284708942}
   boomerangObject: {fileID: 0}
   throwForce: 20
   throwDuration: 0.5
@@ -1310,10 +1308,8 @@ MonoBehaviour:
   xScaling: 0
   yScaling: 0
   isRotating: 0
-  boomerangThrowScript: {fileID: 1284708943}
   rb: {fileID: 912601458}
   coll: {fileID: 0}
-  throwStartingPosition: {fileID: 1284708942}
   boomerangObject: {fileID: 0}
   throwForce: 20
   throwDuration: 0.5
@@ -1630,7 +1626,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1284708942}
   - component: {fileID: 1284708943}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ThrowStartingPos
   m_TagString: StartThrow
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
@@ -1665,7 +1661,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   throwStartingPosition: {fileID: 1284708942}
-  boomerangPrefab: {fileID: 912601453}
+  boomerangPrefab: {fileID: 8147447849808638245, guid: 127d18ebadca70449b575661271bea04, type: 3}
   throwables: 1
   xScaling:
   - -1
@@ -1691,7 +1687,7 @@ GameObject:
   - component: {fileID: 1389416482}
   m_Layer: 0
   m_Name: Boomerang
-  m_TagString: Untagged
+  m_TagString: Scalable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2403,10 +2399,8 @@ MonoBehaviour:
   xScaling: 0
   yScaling: 0
   isRotating: 0
-  boomerangThrowScript: {fileID: 1284708943}
   rb: {fileID: 2046447594}
   coll: {fileID: 0}
-  throwStartingPosition: {fileID: 1284708942}
   boomerangObject: {fileID: 0}
   throwForce: 20
   throwDuration: 0.5
@@ -2858,7 +2852,7 @@ GameObject:
   - component: {fileID: 6311353554389093571}
   - component: {fileID: 4362169103002070163}
   - component: {fileID: 292955930701815924}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -3004,8 +2998,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.51, y: -1.4, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.29, y: 0.29, z: 0.29}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1284708942}
   m_Father: {fileID: 0}
