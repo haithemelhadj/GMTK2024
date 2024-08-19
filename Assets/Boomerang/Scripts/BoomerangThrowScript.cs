@@ -21,10 +21,13 @@ public class BoomerangThrowScript : MonoBehaviour
 
     private void Awake()
     {
-        xScalingText.text = "X Scaling: " + xScaling[xScalingIndex].ToString();
-        yScalingText.text = "Y Scaling: " + yScaling[yScalingIndex].ToString();
-        //singelton
-        if(instance == null)
+        if (xScaling != null)
+        {
+            xScalingText.text = "X Scaling: " + xScaling[xScalingIndex].ToString();
+            yScalingText.text = "Y Scaling: " + yScaling[yScalingIndex].ToString();
+        }
+            //singelton
+        if (instance == null)
         {
             instance = this;
         }
