@@ -47,7 +47,7 @@ public class BoomerangLogicScript : MonoBehaviour
     {
         if (isRotating)
         {
-            boomerangObject.transform.Rotate(rotationVector * rotationSpeed * Time.deltaTime); // place holder rotation
+            //boomerangObject.transform.Rotate(rotationVector * rotationSpeed * Time.deltaTime); // place holder rotation.
         }
         if (isThrown)
         {
@@ -76,6 +76,8 @@ public class BoomerangLogicScript : MonoBehaviour
         //
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         throwDirection = (mousePos - (Vector2)throwStartingPosition.position).normalized;
+        //
+        rb.AddTorque(rotationSpeed);
     }
 
 
@@ -137,7 +139,7 @@ public class BoomerangLogicScript : MonoBehaviour
         }
         if(collision.CompareTag("Scalable")&& !isLoose)
         {
-            collision.gameObject.transform.localScale = new Vector3(xScaling, yScaling, 1f);
+            collision.gameObject.transform.localScale = new Vector3(xScaling* collision.gameObject.transform.localScale.x, yScaling* collision.gameObject.transform.localScale.y, 1f);
             if(collision.gameObject.GetComponent<Rigidbody2D>() != null)
             {
                 collision.gameObject.GetComponent<Rigidbody2D>().gravityScale *= Mathf.Sign(yScaling);
