@@ -350,7 +350,7 @@ GameObject:
   - component: {fileID: 533122142}
   - component: {fileID: 533122141}
   - component: {fileID: 533122140}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -525,7 +525,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -730,7 +730,7 @@ GameObject:
   m_Component:
   - component: {fileID: 885640281}
   - component: {fileID: 885640282}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ThrowStartingPos
   m_TagString: StartThrow
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
