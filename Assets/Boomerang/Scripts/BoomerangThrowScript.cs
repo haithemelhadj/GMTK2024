@@ -5,7 +5,7 @@ public class BoomerangThrowScript : MonoBehaviour
 {
     //refrences
     public Transform throwStartingPosition;
-    public GameObject boomerangPrefab;
+    public BoomerangLogicScript boomerangPrefab;
     public int throwables = 4;
 
     //scaling
@@ -16,13 +16,22 @@ public class BoomerangThrowScript : MonoBehaviour
     public int yScalingIndex;
     public Text yScalingText;
 
-
-
+    //singelton
+    public static BoomerangThrowScript instance;
 
     private void Awake()
     {
         xScalingText.text = "X Scaling: " + xScaling[xScalingIndex].ToString();
         yScalingText.text = "Y Scaling: " + yScaling[yScalingIndex].ToString();
+        //singelton
+        if(instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
     }
     private void Update()
     {
@@ -33,8 +42,8 @@ public class BoomerangThrowScript : MonoBehaviour
             {
                 throwables--;
                 //instantiate a boomerang 
-                GameObject boomerangSpwn= Instantiate(boomerangPrefab, throwStartingPosition.position, Quaternion.identity);
-                boomerangSpwn.GetComponent<BoomerangLogicScript>().ThrowBoomerang(xScaling[xScalingIndex], yScaling[yScalingIndex]);
+                BoomerangLogicScript boomerangSpwn = Instantiate(boomerangPrefab, throwStartingPosition.position, Quaternion.identity);
+                boomerangSpwn.ThrowBoomerang(xScaling[xScalingIndex], yScaling[yScalingIndex]);
             }
         }
 

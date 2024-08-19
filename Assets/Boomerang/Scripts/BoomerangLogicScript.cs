@@ -9,12 +9,12 @@ public class BoomerangLogicScript : MonoBehaviour
     //animator vars
     [HideInInspector] public bool isRotating;
     //components
-    public BoomerangThrowScript boomerangThrowScript;
+    //public BoomerangThrowScript boomerangThrowScript;   //now uses singelton
     public Rigidbody2D rb;
     public CircleCollider2D coll;
 
     //refrences
-    public Transform throwStartingPosition;
+    //public Transform throwStartingPosition;             //now uses singeltom
     public GameObject boomerangObject;
 
     //throw vars
@@ -66,16 +66,16 @@ public class BoomerangLogicScript : MonoBehaviour
         yScaling = y;
         //
         isBeingThrown = true;
-        coll.isTrigger = true;
+        //coll.isTrigger = true;
         isThrown = true;
         rb.velocity = Vector2.zero;
         rb.gravityScale = 0f;
         //
         throwTime = Time.time;
-        transform.position = throwStartingPosition.position;
+        transform.position = BoomerangThrowScript.instance.transform.position;
         //
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        throwDirection = (mousePos - (Vector2)throwStartingPosition.position).normalized;
+        throwDirection = (mousePos - (Vector2)BoomerangThrowScript.instance.transform.position).normalized;
         //
         rb.AddTorque(rotationSpeed);
     }
@@ -90,7 +90,7 @@ public class BoomerangLogicScript : MonoBehaviour
             //Debug.Log("is Thrown");
             isBeingThrown = true; //is being thrown
             rb.velocity = throwDirection * throwForce;//throw velocity
-            lastPlayerPos = throwStartingPosition.position;//return to last player position
+            lastPlayerPos = BoomerangThrowScript.instance.transform.position;//return to last player position
             isRotating = true;
             return;
         }
@@ -100,7 +100,7 @@ public class BoomerangLogicScript : MonoBehaviour
             isLoose = true;
             //Debug.Log("didn't catch");
             rb.velocity = Vector2.zero;
-            coll.isTrigger = false;
+            //coll.isTrigger = false;
             rb.gravityScale = 2f;
             isRotating = false;
 
@@ -133,7 +133,7 @@ public class BoomerangLogicScript : MonoBehaviour
             //Debug.Log("did catch");
             isLoose = false;
             isThrown = false;
-            boomerangThrowScript.throwables++;
+            BoomerangThrowScript.instance.throwables++;
             gameObject.SetActive(false);
             Destroy(gameObject);
         }
@@ -160,7 +160,7 @@ public class BoomerangLogicScript : MonoBehaviour
             //Debug.Log("did catch");
             isLoose = false;
             isThrown = false;
-            boomerangThrowScript.throwables++;
+            BoomerangThrowScript.instance.throwables++;
             gameObject.SetActive(false);
             Destroy(gameObject);
 
