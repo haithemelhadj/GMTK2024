@@ -167,7 +167,7 @@ GameObject:
   - component: {fileID: 8147447849808638245}
   m_Layer: 0
   m_Name: Boomerang
-  m_TagString: Scalable
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -309,7 +309,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.05
+  m_Mass: 0.005
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -352,5 +352,5 @@ MonoBehaviour:
   disapearDistance: 0.05
   lastPlayerPos: {x: 0, y: 0}
   isLoose: 0
-  rotationSpeed: 500
+  rotationSpeed: 5000
   rotationVector: {x: 0, y: 0, z: 1}
