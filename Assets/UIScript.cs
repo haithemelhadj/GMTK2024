@@ -10,7 +10,7 @@ public class UIScript : MonoBehaviour
     //
     public GameObject pausePanel;
     public GameObject winPanel;
-    public bool paused;
+    private bool paused;
     //
 
     private void Awake()
