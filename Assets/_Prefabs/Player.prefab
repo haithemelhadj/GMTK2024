@@ -81,6 +81,7 @@ GameObject:
   - component: {fileID: 3689419617489347198}
   - component: {fileID: 1169426041447352513}
   - component: {fileID: 5154520522634088198}
+  - component: {fileID: 6536694701247014187}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -372,3 +373,18 @@ MonoBehaviour:
   canDash: 0
   isDashing: 0
   drag: 0
+--- !u!114 &6536694701247014187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8694217540890185133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fdadcd7510ed98449b45d6addc83fd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fanParent: {fileID: 0}
+  fanForce: 20
+  isCollidingWithFan: 0

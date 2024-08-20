@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 512101469156279163}
   - component: {fileID: 986177871039926950}
   - component: {fileID: 2712719383741092860}
+  - component: {fileID: 2510494027865087628}
   m_Layer: 3
   m_Name: 'scalable Box '
   m_TagString: Scalable
@@ -172,3 +173,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &2510494027865087628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2463976057016681439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fdadcd7510ed98449b45d6addc83fd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fanParent: {fileID: 0}
+  fanForce: 20
+  isCollidingWithFan: 0
