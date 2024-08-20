@@ -5299,6 +5299,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 4217048037058738255}
   spriteRenderer2: {fileID: 8741221768306225399}
+  ps: {fileID: 555593933080576156}
 --- !u!1 &8833890478497294224
 GameObject:
   m_ObjectHideFlags: 0
