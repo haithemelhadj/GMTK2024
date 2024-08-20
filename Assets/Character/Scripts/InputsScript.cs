@@ -92,8 +92,8 @@ public class InputsScript : MonoBehaviour
     public void GroundCheck()
     {
         //send 2 raycast at the limits of the player's feet to check if the player is grounded
-        RaycastHit2D hitRight = Physics2D.Raycast(transform.position + new Vector3(playerWidth / 2, 0, 0), Vector2.down, playerHeight / 2 + extraGroundCheckDistance, whatIsGround);
-        RaycastHit2D hitLeft = Physics2D.Raycast(transform.position - new Vector3(playerWidth / 2, 0, 0), Vector2.down, playerHeight / 2 + extraGroundCheckDistance, whatIsGround);
+        RaycastHit2D hitRight = Physics2D.Raycast(transform.position + new Vector3(playerWidth / 2, 0, 0), Vector2.down, (playerHeight * transform.localScale.y) / 2 + extraGroundCheckDistance, whatIsGround);
+        RaycastHit2D hitLeft = Physics2D.Raycast(transform.position - new Vector3(playerWidth / 2, 0, 0), Vector2.down, (playerHeight * transform.localScale.y) / 2 + extraGroundCheckDistance, whatIsGround);
         if (hitLeft.collider != null || hitRight.collider != null)
         {
             isGrounded = true;
