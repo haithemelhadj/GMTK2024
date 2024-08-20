@@ -18,7 +18,6 @@ public class MagnetBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         magnetSize = (transform.localScale.x + transform.localScale.y) * 2f;
         RaycastHit2D hit = Physics2D.Raycast(redpole.position, -transform.up, magnetSize, ~player);
         Debug.DrawRay(redpole.position, -transform.up * magnetSize, Color.red);
