@@ -53,12 +53,14 @@ MonoBehaviour:
   - 2
   xScalingIndex: 0
   xScalingText: {fileID: 0}
+  xAxisImg: {fileID: 0}
   yScaling:
   - -1
   - 0.5
   - 2
   yScalingIndex: 0
   yScalingText: {fileID: 0}
+  yAxisImg: {fileID: 0}
 --- !u!1 &8694217540890185133
 GameObject:
   m_ObjectHideFlags: 0
@@ -224,7 +226,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 5
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: bb61d62aeb5b9b84cbf58d95b3a737f9, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
