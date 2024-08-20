@@ -48,16 +48,18 @@ MonoBehaviour:
   boomerangPrefab: {fileID: 8147447849808638245, guid: 127d18ebadca70449b575661271bea04, type: 3}
   throwables: 5
   xScaling:
-  - -1
+  - 1
   - 0.5
   - 2
+  - -1
   xScalingIndex: 0
   xScalingText: {fileID: 0}
   xAxisImg: {fileID: 0}
   yScaling:
-  - -1
+  - 1
   - 0.5
   - 2
+  - -1
   yScalingIndex: 0
   yScalingText: {fileID: 0}
   yAxisImg: {fileID: 0}
