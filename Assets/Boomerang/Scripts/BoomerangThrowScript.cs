@@ -12,9 +12,11 @@ public class BoomerangThrowScript : MonoBehaviour
     public float[] xScaling;
     public int xScalingIndex;
     public Text xScalingText;
+    public Transform xAxisImg;
     public float[] yScaling;
     public int yScalingIndex;
     public Text yScalingText;
+    public Transform yAxisImg;
 
     //singelton
     public static BoomerangThrowScript instance;
@@ -23,8 +25,10 @@ public class BoomerangThrowScript : MonoBehaviour
     {
         if (xScaling != null)
         {
-            xScalingText.text = "X Scaling: " + xScaling[xScalingIndex].ToString();
-            yScalingText.text = "Y Scaling: " + yScaling[yScalingIndex].ToString();
+            //xScalingText.text = "X Scaling(E): " + xScaling[xScalingIndex].ToString();
+            //yScalingText.text = "Y Scaling(Q): " + yScaling[yScalingIndex].ToString(); 
+            xScalingText.text= "*" + xScaling[xScalingIndex].ToString();
+            yScalingText.text= "*" + yScaling[yScalingIndex].ToString();
         }
             //singelton
         if (instance == null)
@@ -59,13 +63,17 @@ public class BoomerangThrowScript : MonoBehaviour
         {
             xScalingIndex++;
             xScalingIndex = xScalingIndex % xScaling.Length;
-            xScalingText.text= "X Scaling(E): " + xScaling[xScalingIndex].ToString();
+            xScalingText.text= "*" + xScaling[xScalingIndex].ToString();
+            //xScalingText.text= "X Scaling(E): " + xScaling[xScalingIndex].ToString();
+            xAxisImg.localScale = new Vector3(xScaling[xScalingIndex], 1, 1);
         }
         if(Input.GetKeyDown(KeyCode.Q))
         {
             yScalingIndex++;
             yScalingIndex = yScalingIndex % yScaling.Length;
-            yScalingText.text= "Y Scaling(Q): " + yScaling[yScalingIndex].ToString();
+            yScalingText.text= "*" + yScaling[yScalingIndex].ToString();
+            //yScalingText.text= "Y Scaling(Q): " + yScaling[yScalingIndex].ToString();
+            yAxisImg.localScale = new Vector3(1, yScaling[yScalingIndex], 1);
         }
     }
 }

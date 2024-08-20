@@ -22,9 +22,9 @@ public class MagnetBehaviour : MonoBehaviour
         magnetSize = (transform.localScale.x + transform.localScale.y) * 2f;
         RaycastHit2D hit = Physics2D.Raycast(redpole.position, -transform.up, magnetSize, ~player);
         Debug.DrawRay(redpole.position, -transform.up * magnetSize, Color.red);
-        Debug.Log(hit.collider.tag);
         if (hit.collider != null)
         {
+        Debug.Log(hit.collider.tag);
             if (hit.collider.tag == "Metal")
             {
                 Debug.Log("pulling");
