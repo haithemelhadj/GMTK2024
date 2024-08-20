@@ -139,7 +139,14 @@ public class BoomerangLogicScript : MonoBehaviour
         }
         if(collision.CompareTag("Scalable")&& !isLoose)
         {
-            collision.gameObject.transform.localScale = new Vector3(xScaling* collision.gameObject.transform.localScale.x, yScaling* collision.gameObject.transform.localScale.y, 1f);
+            if(collision.gameObject.GetComponent<ScalableCounter>() != null)
+            {
+                collision.gameObject.GetComponent<ScalableCounter>().ScaleObject(xScaling, yScaling);
+            }
+            else
+            {
+                collision.gameObject.transform.localScale = new Vector3(xScaling* collision.gameObject.transform.localScale.x, yScaling* collision.gameObject.transform.localScale.y, 1f);
+            }
             if(collision.gameObject.GetComponent<Rigidbody2D>() != null)
             {
                 collision.gameObject.GetComponent<Rigidbody2D>().gravityScale *= Mathf.Sign(yScaling);
