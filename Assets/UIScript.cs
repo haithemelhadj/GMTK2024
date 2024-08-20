@@ -28,6 +28,13 @@ public class UIScript : MonoBehaviour
     {
         Time.timeScale = 1f;
     }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            restartLevel();
+        }
+    }
     public void pause()
     {
         if (paused)
@@ -56,5 +63,9 @@ public class UIScript : MonoBehaviour
     public void MainMenu()
     {
         SceneManager.LoadScene(0);
+    }
+    public void restartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
