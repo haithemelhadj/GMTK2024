@@ -6,6 +6,9 @@ public class PortalScript : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        UIScript.instance.win();
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            UIScript.instance.win();
+        }
     }
 }
