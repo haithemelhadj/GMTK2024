@@ -33,6 +33,6 @@ public class MainMenuManager : MonoBehaviour
     }
     public void goToLevel(int levelNumber)
     {
-        SceneManager.LoadScene(levelNumber+firstLevelIndex);
+        SceneManager.LoadScene(levelNumber+firstLevelIndex-1);
     }
 }
