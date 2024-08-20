@@ -298,6 +298,10 @@ PrefabInstance:
       propertyPath: InitialModule.startColor.maxColor.r
       value: 0.69161266
       objectReference: {fileID: 0}
+    - target: {fileID: 2575460473396577332, guid: f0df8cb374d79ac46b9d9393843c9d36, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2750448300100672039, guid: f0df8cb374d79ac46b9d9393843c9d36, type: 3}
       propertyPath: m_LocalScale.y
       value: 2.530096
