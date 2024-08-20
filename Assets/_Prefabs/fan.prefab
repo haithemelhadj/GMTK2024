@@ -5145,6 +5145,7 @@ GameObject:
   - component: {fileID: 8479414742912382878}
   - component: {fileID: 8636150310357427887}
   - component: {fileID: 2823274582867656804}
+  - component: {fileID: 6000655675259636636}
   m_Layer: 0
   m_Name: fan
   m_TagString: Scalable
@@ -5300,6 +5301,18 @@ MonoBehaviour:
   spriteRenderer: {fileID: 4217048037058738255}
   spriteRenderer2: {fileID: 8741221768306225399}
   ps: {fileID: 555593933080576156}
+--- !u!114 &6000655675259636636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7927865811651994818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e43f369c9b3ebf43b6f6dfdf521a7bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8833890478497294224
 GameObject:
   m_ObjectHideFlags: 0
