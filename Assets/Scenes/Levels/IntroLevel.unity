@@ -19733,11 +19733,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1585915484025928965, guid: d0bf33063a01ba646856b87591210f8f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -17.45
+      value: 3.76
       objectReference: {fileID: 0}
     - target: {fileID: 1585915484025928965, guid: d0bf33063a01ba646856b87591210f8f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.56
+      value: 4.78
       objectReference: {fileID: 0}
     - target: {fileID: 1585915484025928965, guid: d0bf33063a01ba646856b87591210f8f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -20033,6 +20033,14 @@ PrefabInstance:
     - target: {fileID: 2750448300100672039, guid: f0df8cb374d79ac46b9d9393843c9d36, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3382712873715882737, guid: f0df8cb374d79ac46b9d9393843c9d36, type: 3}
+      propertyPath: m_ForceAngle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4988296343827420852, guid: f0df8cb374d79ac46b9d9393843c9d36, type: 3}
+      propertyPath: m_ForceAngle
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7927865811651994818, guid: f0df8cb374d79ac46b9d9393843c9d36, type: 3}
       propertyPath: m_Name
