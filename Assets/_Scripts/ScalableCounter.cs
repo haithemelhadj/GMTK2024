@@ -9,8 +9,14 @@ public class ScalableCounter : MonoBehaviour
     private Vector3 scaleSign = Vector3.one;
     public int numberOfTimesToScale = 1;
     private float timer = -1;
+
+    //just to make it easier for us to make levels
+    public SpriteRenderer spriteRenderer;
+    public SpriteRenderer spriteRenderer2;
     void Start()
     {
+        spriteRenderer.enabled = false;
+        spriteRenderer2.enabled = false;
         initialScale = transform.localScale;
     }
 
