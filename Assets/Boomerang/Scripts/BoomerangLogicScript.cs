@@ -139,7 +139,7 @@ public class BoomerangLogicScript : MonoBehaviour
         }
         if(collision.CompareTag("Scalable")&& !isLoose)
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
             if (collision.gameObject.GetComponent<ScalableCounter>() != null)
             {
                 collision.gameObject.GetComponent<ScalableCounter>().ScaleObject(xScaling, yScaling);
