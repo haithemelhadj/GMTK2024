@@ -162,7 +162,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: c05080a125625bc4dae5593b3f1c8053, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -187,4 +187,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fanParent: {fileID: 0}
   fanForce: 20
+  fanForceF: 1
   isCollidingWithFan: 0
