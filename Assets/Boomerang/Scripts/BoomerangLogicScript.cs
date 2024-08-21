@@ -58,7 +58,13 @@ public class BoomerangLogicScript : MonoBehaviour
 
 
     #region functions
-
+    /*public void DrawboomerangPath()
+    {
+        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        throwDirection = (mousePos - (Vector2)BoomerangThrowScript.instance.transform.position).normalized;
+        
+        
+    }*/
     public void ThrowBoomerang(float x, float y)
     {
         //

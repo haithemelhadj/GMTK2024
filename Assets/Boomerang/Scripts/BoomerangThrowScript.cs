@@ -43,7 +43,7 @@ public class BoomerangThrowScript : MonoBehaviour
     private void Update()
     {
         SetScaling();
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonUp(0))
         {
             if (throwables > 0)
             {
