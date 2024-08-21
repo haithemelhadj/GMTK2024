@@ -102,11 +102,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   magnetForce: 0.5
-  magnetSize: 0
+  magnetSize: 5
   redpole: {fileID: 8248698715159772292}
-  player:
+  ignoreLayers:
     serializedVersion: 2
-    m_Bits: 503
+    m_Bits: 2038
+  magnetLength: 2
 --- !u!61 &1868821082321281857
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -7,6 +7,7 @@ TagManager:
   - StartThrow
   - Scalable
   - Metal
+  - Grid
   layers:
   - Default
   - TransparentFX

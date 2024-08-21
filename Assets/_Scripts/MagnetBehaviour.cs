@@ -9,7 +9,9 @@ public class MagnetBehaviour : MonoBehaviour
     public float magnetForce = 10f;
     public float magnetSize;
     public Transform redpole;
-    public LayerMask player;
+    public LayerMask ignoreLayers;
+    public float magnetLength = 2f;
+
     void Start()
     {
 
@@ -18,8 +20,8 @@ public class MagnetBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        magnetSize = (transform.localScale.x + transform.localScale.y) * 2f;
-        RaycastHit2D hit = Physics2D.Raycast(redpole.position, -transform.up, magnetSize, ~player);
+        magnetSize = MathF.Abs( transform.localScale.x + transform.localScale.y)*MathF.Sign(transform.localScale.y) * magnetLength;
+        RaycastHit2D hit = Physics2D.Raycast(redpole.position, -transform.up, magnetSize, ~ignoreLayers);
         Debug.DrawRay(redpole.position, -transform.up * magnetSize, Color.red);
         if (hit.collider != null)
         {
